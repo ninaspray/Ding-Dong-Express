@@ -1,11 +1,26 @@
 module.exports = (connection, DataTypes) => {
-    const schema = {
-      name: DataTypes.STRING,
-      last_name: DataTypes.STRING,
-      flat_number: DataTypes.STRING,
-      email: DataTypes.STRING,
-    };
+
+  const schema = {
+    firstname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lastname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    flat_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  };
   
     const TennantModel = connection.define('Tennant', schema);
     return TennantModel;
   };
+
+  
