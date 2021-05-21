@@ -1,6 +1,7 @@
-const tennant = require('../models/tennant');
-const { Tennant } = require('../models/tennant');
+const { request } = require('express');
+const { Tennant } = require('../models');
 
-exports.create = (req, res) => {
-  Tennant.create(req.body).then(tennant => res.status(201).json(tennant));
-};
+
+exports.create = (request, response) => {
+    Tennant.create(request.body).then(tennant => response.status(201).json(tennant));
+  };

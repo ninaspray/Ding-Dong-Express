@@ -2,7 +2,7 @@ module.exports = (connection, DataTypes) => {
     const schema = {
       name: DataTypes.STRING,
       last_name: DataTypes.STRING,
-      flat_number: DataTypes.NUMBER,
+      flat_number: DataTypes.STRING,
       email: DataTypes.STRING,
     };
   

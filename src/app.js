@@ -1,14 +1,15 @@
 const express = require('express');
-const tennantControllers = require('./controllers/tennant');
 const app = express ();
+app.use(express.json());
 
-app.get('/test',(request, response) => {
+const tennantControllers = require('./controllers/tennant');
+
+app.get('/test',(req, res) => {
     response.status(201).json('Hello World');
 });
 
-app.use(express.json());
-//Tennant
 
+//Tennant 
 app.post('/tennant', tennantControllers.create);
 
 module.exports = app;
