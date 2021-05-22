@@ -15,11 +15,11 @@ exports.create = (request, response) => {
     });
   };
 
-  exports.getTennantById = (request, response) => {
+  exports.getTennantById = ( request, response) => {
     const { id } = request.params;
     Tennant.findByPk(id).then(tennant => {
       if (!tennant) {
-        response.status(404).json({ error: 'The Tennant could not be found.' });
+        response.status(404).json({ error: 'The tennant could not be found.' });
       } else {
         response.status(200).json(tennant);
         }    

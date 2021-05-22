@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express ();
-app.use(express.json());
 
 const tennantControllers = require('./controllers/tennant');
 const packageControllers = require('./controllers/package');
@@ -9,6 +8,7 @@ app.get('/test',(req, res) => {
     response.status(201).json('Hello World');
 });
 
+app.use(express.json());
 
 //Tennant 
 app.post('/tennant', tennantControllers.create);
