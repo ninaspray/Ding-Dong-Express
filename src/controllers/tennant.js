@@ -4,7 +4,8 @@ const { Tennant } = require('../models');
 
 
 exports.create = (request, response) => {
-    Tennant.create(request.body).then(tennant => response.status(201).json(tennant));
+  //console.log(request.body);
+  Tennant.create(request.body).then(tennant => response.status(201).json(tennant));
   };
 
   exports.list = (request, response) => {

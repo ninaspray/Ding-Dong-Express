@@ -22,5 +22,3 @@ module.exports = (connection, DataTypes) => {
     const TennantModel = connection.define('Tennant', schema);
     return TennantModel;
   };
-
-  
