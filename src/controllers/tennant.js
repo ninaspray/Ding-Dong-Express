@@ -9,9 +9,9 @@ exports.create = (request, response) => {
 
   exports.list = (request, response) => {
     Tennant.findAll()
-    .then(tennants => {
+    .then(tennant => {
     response.status(200)
-    .json(tennants);
+    .json(tennant);
     });
   };
 
@@ -40,7 +40,7 @@ exports.create = (request, response) => {
       const { id } = request.params;
       Artist.destroy( { where: { id } }).then((idDeleted) => {
           if (!idDeleted) {
-              response.status(404).json({ error: 'The artist could not be found.' });
+              response.status(404).json({ error: 'The Tennant could not be found.' });
           } else {
               response.status(204).json(idDeleted);
           };
