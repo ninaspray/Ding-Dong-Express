@@ -4,9 +4,12 @@ const PackageModel = require('./package');
 
 const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, CLEARDB_DATABASE_URL } = process.env;
 
+//console.log(process.env);
+
 const setupDatabase = () => {
   const connection = CLEARDB_DATABASE_URL ? getProdDB() : getLocalDB();
     
+//console.log(connection);
 
     const Tennant = TennantModel(connection, Sequelize);
     const Package = PackageModel(connection, Sequelize);
@@ -20,6 +23,8 @@ const setupDatabase = () => {
       Package
     };
   };
+
+  
   
   const getLocalDB = () => {
     return new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
