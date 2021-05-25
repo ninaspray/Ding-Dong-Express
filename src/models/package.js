@@ -5,10 +5,14 @@ module.exports = (connection, DataTypes) => {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        picked_up: {
-          type: DataTypes.STRING,
+        notified: {
+          type: DataTypes.BOOLEAN,
           allowNull: false,
         },
+        collected: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+          },
     };
   
     const PackageModel = connection.define('Package', schema);

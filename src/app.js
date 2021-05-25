@@ -11,12 +11,12 @@ app.get('/test',(req, res) => {
     response.status(201).json('Hello World');
 });
 
-Router("*", cors());
+//Router("*", cors());
 app.use(express.json());
 
 //Tennant 
 app.post('/tennant', tennantControllers.create);
-app.get('/tennant', cors(),tennantControllers.list);
+app.get('/tennant',tennantControllers.list);
 app.get('/tennant/:id', tennantControllers.getTennantById);
 app.patch('/tennant/:id', tennantControllers.updateTennant);
 app.delete('/tennant/:id', tennantControllers.deleteTennant);
