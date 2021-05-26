@@ -14,8 +14,6 @@ const setupDatabase = () => {
     const Tennant = TennantModel(connection, Sequelize);
     const Package = PackageModel(connection, Sequelize);
 
-  
-    Package.hasOne(Tennant);
     Package.belongsTo(Tennant, { as: "package" });
   
     connection.sync({ alter: true });
