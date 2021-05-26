@@ -23,9 +23,9 @@ app.delete('/tennants/:id', tennantControllers.deleteTennant);
 
 //Package
 app.post('/tennants/:tennantId/packages', packageControllers.create);
-app.get('/package', packageControllers.getPackage);
-app.get('/package/:packageId', packageControllers.getPackageById);
-app.patch('/package/:packageId', packageControllers.updatePackage);
+app.get('/packages', packageControllers.getPackage);
+app.get('/packages/:packageId', packageControllers.getPackageById);
+app.patch('/packages/:packageId', packageControllers.updatePackage);
 
 
 module.exports = app;
