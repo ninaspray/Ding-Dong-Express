@@ -20,7 +20,8 @@ exports.getPackage = (request, response) => {
 
 
 exports.getPackagesByTenanntsId = (request, response) => {
-    const {tennantId} = request.params;
+    const { tennantId } = request.params;
+    
     Tennant.findByPk(tennantId).then((tennant) => {
         if (!tennant) {
             response.status(404).json({error: "The Tennant could not be found."});

@@ -24,7 +24,7 @@ app.delete('/tennants/:id', tennantControllers.deleteTennant);
 //Package
 app.post('/tennants/:tennantId/packages', packageControllers.create);
 app.get('/packages', packageControllers.getPackage);
-app.get('/tennants/:tennantID/packages', packageControllers.getPackagesByTenanntsId);
+app.get('/tennants/:tennantId/packages', packageControllers.getPackagesByTenanntsId);
 app.get('/packages/:packageId', packageControllers.getPackageById);
 app.patch('/packages/:packageId', packageControllers.updatePackage);
 
