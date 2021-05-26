@@ -1,6 +1,7 @@
 const {request, response} = require('express');
 const { Tennant } = require('../models');
 const { Package } = require('../models');
+const tennant = require('../models/tennant');
 
 exports.create = (request, response) => {
     const data = request.body
@@ -16,6 +17,31 @@ exports.getPackage = (request, response) => {
         response.status(201)
         .json(package));
 };
+
+
+exports.getPackagesByTenanntsId = (request, response) => {
+    const {tennantId} = request.params;
+
+    Tennant.findByPk(tennantId).then((tennant) => {
+        if (!tennant) {
+            response.status(404).json({error: "The Tennant could not be found."});
+        } else {
+            Package.findAll({
+                where: { tennantId : tennantId },
+                include: [{
+                    model: Tennant, 
+                    as: "tennant",
+                },
+            ],   
+            })
+            .then((packages) => {
+                response.status(200).json(packages);
+            })
+            .catch(console.error);
+        }
+    });
+};
+
 
 exports.getPackageById = (request, response) => {
     Package.findByPk(request.params.packageId)
