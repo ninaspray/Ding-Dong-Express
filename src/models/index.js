@@ -16,7 +16,7 @@ const setupDatabase = () => {
 
   
     Package.hasOne(Tennant);
-  
+    Package.belongsTo(Tennant, { as: "package" });
   
     connection.sync({ alter: true });
     return {
