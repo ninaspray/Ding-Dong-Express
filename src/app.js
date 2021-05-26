@@ -15,14 +15,14 @@ app.get('/test',(req, res) => {
 app.use(express.json());
 
 //Tennant 
-app.post('/tennant', tennantControllers.create);
-app.get('/tennant',tennantControllers.list);
-app.get('/tennant/:id', tennantControllers.getTennantById);
-app.patch('/tennant/:id', tennantControllers.updateTennant);
-app.delete('/tennant/:id', tennantControllers.deleteTennant);
+app.post('/tennants', tennantControllers.create);
+app.get('/tennants',tennantControllers.list);
+app.get('/tennants/:id', tennantControllers.getTennantById);
+app.patch('/tennants/:id', tennantControllers.updateTennant);
+app.delete('/tennants/:id', tennantControllers.deleteTennant);
 
 //Package
-app.post('/tennant/:id/package', packageControllers.create);
+app.post('/tennants/:tennantId/packages', packageControllers.create);
 app.get('/package', packageControllers.getPackage);
 app.get('/package/:packageId', packageControllers.getPackageById);
 app.patch('/package/:packageId', packageControllers.updatePackage);
