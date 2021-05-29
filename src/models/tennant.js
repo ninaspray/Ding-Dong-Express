@@ -1,5 +1,4 @@
 module.exports = (connection, DataTypes) => {
-
   const schema = {
     firstname: {
       type: DataTypes.STRING,
@@ -17,8 +16,13 @@ module.exports = (connection, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    telephone: {
+      type: DataTypes.BIGINT,
+      length: 14,
+      allowNull: false,
+    },
   };
-  
-    const TennantModel = connection.define('Tennant', schema);
-    return TennantModel;
-  };
+
+  const TennantModel = connection.define("Tennant", schema);
+  return TennantModel;
+};

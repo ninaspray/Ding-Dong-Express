@@ -7,10 +7,12 @@ module.exports = (connection, DataTypes) => {
         },
         notified: {
           type: DataTypes.BOOLEAN,
+          defaultValue: true,
           allowNull: false,
         },
         collected: {
             type: DataTypes.BOOLEAN,
+            defaultValue: false,
             allowNull: false,
           },
     };

@@ -5,10 +5,12 @@ const tennant = require('../models/tennant');
 
 exports.create = (request, response) => {
     const data = request.body
-    data.tennantId = request.params.tennantId
+    data.TennantId = +request.params.tennantId
     Tennant.findByPk(request.params.tennantId).then(packageDocument => {
         if (!packageDocument) response.status(404).json({ error: "The tennant could not be found." })
-        else Package.create(data).then(packageDocument => response.status(201).json(packageDocument))
+        else { console.log(data)
+             Package.create(data).then(packageDocument => response.status(201).json(packageDocument))
+        } 
     })};
 
 exports.getPackage = (request, response) => {
@@ -28,11 +30,11 @@ exports.getPackagesByTenanntsId = (request, response) => {
         } else {
             Package.findAll({
                 where: { tennantId : tennantId },
-                include: [{
-                    model: Tennant, 
-                    as: "tennants",
-                },
-            ],   
+            //     include: [{
+            //         model: Tennant,
+            //         as: 'tennant' 
+            //     },
+            // ],   
             })
             .then((packages) => {
                 response.status(200).json(packages);

@@ -5,6 +5,7 @@ app.use(cors());
 
 const tennantControllers = require('./controllers/tennant');
 const packageControllers = require('./controllers/package');
+const smsControllers = require('./controllers/sms');
 const { Router } = require('express');
 
 app.get('/test',(req, res) => {
@@ -28,5 +29,7 @@ app.get('/tennants/:tennantId/packages', packageControllers.getPackagesByTenannt
 app.get('/packages/:packageId', packageControllers.getPackageById);
 app.patch('/packages/:packageId', packageControllers.updatePackage);
 
+//Twilio
+app.post('/sendsms', smsControllers.create )
 
 module.exports = app;

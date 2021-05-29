@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const TennantModel = require('./tennant');
 const PackageModel = require('./package');
+const tennant = require('./tennant');
 
 const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, CLEARDB_DATABASE_URL } = process.env;
 
@@ -14,7 +15,9 @@ const setupDatabase = () => {
     const Tennant = TennantModel(connection, Sequelize);
     const Package = PackageModel(connection, Sequelize);
 
-    Package.belongsTo(Tennant, { as: "package" });
+    //Package.belongsTo(Tennant, { as: "package" });
+    Tennant.hasMany(Package, {as: 'packages'});
+    //Package.hasOne(Tennant, {as: 'tennant'});
   
     connection.sync({ alter: true });
     return {

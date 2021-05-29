@@ -1,6 +1,6 @@
 const { request } = require('express');
 const { Tennant } = require('../models');
-
+const { Package } = require('../models');
 
 
 exports.create = (request, response) => {
@@ -9,7 +9,12 @@ exports.create = (request, response) => {
   };
 
   exports.list = (request, response) => {
-    Tennant.findAll()
+    Tennant.findAll({
+        include: [{
+          model: Package,
+          as: "packages"
+        }]
+      })
     .then(tennant => {
     response.status(200)
     .json(tennant);
