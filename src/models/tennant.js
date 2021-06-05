@@ -17,8 +17,7 @@ module.exports = (connection, DataTypes) => {
       allowNull: false,
     },
     telephone: {
-      type: DataTypes.BIGINT,
-      length: 14,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   };
