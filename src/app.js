@@ -4,7 +4,7 @@ const cors = require("cors");
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://ding-dong-b6qk4j3vb-ninaspray.vercel.app/"
+    "*" //"https://ding-dong-b6qk4j3vb-ninaspray.vercel.app/"
   );
   res.header(
     "Access-Control-Allow-Headers",
