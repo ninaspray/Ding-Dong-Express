@@ -2,10 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "*" //"https://ding-dong-b6qk4j3vb-ninaspray.vercel.app/"
-  );
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -23,7 +20,7 @@ app.get("/test", (req, res) => {
   response.status(201).json("Hello World");
 });
 
-Router("*", cors());
+Router("*", cors("https://ding-dong-1ow6y8860-ninaspray.vercel.app/"));
 app.use(express.json());
 
 //Tennant
