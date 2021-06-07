@@ -1,7 +1,6 @@
 const { Tennant } = require("../models");
 
 exports.create = async (request, response) => {
-  console.log(tennantId);
   const { tennantId } = request.body;
   const tennant = await Tennant.findByPk(tennantId);
 
