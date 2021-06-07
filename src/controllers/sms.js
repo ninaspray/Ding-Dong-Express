@@ -1,4 +1,5 @@
 const { Tennant } = require("../models");
+const path = require("path");
 
 require("dotenv").config({
   path: path.join(__dirname, "../.env.prod"),
