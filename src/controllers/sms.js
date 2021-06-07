@@ -5,7 +5,7 @@ exports.create = async (request, response) => {
   const tennant = await Tennant.findByPk(tennantId);
 
   const accountSid = "AC9a038af7321c1ce431aa34fa8f835c5f";
-  const authToken = "266e2241d1baff4e6755b74dce93bc1e";
+  const authToken = "a40412d396ba53e38ed211710ab70d08";
   const client = require("twilio")(accountSid, authToken);
   console.log(tennant.telephone);
   client.messages
