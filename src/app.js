@@ -1,26 +1,26 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Methods", "GET,POST,PATCH,PUSH,DELETE");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   res.header("Access-Control-Allow-Methods", "GET,POST,PATCH,PUSH,DELETE");
+//   next();
+// });
 
 const tennantControllers = require("./controllers/tennant");
 const packageControllers = require("./controllers/package");
 const smsControllers = require("./controllers/sms");
-const { Router } = require("express");
+//const { Router } = require("express");
 
 app.get("/test", (req, res) => {
   response.status(201).json("Hello World");
 });
-
-Router("*", cors("https://ding-dong-1ow6y8860-ninaspray.vercel.app/"));
+app.use(cors({ origin: "https://ding-dong-1ow6y8860-ninaspray.vercel.app" }));
+//Router("*", cors("https://ding-dong-1ow6y8860-ninaspray.vercel.app/"));
 app.use(express.json());
 
 //Tennant
