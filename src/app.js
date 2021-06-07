@@ -19,7 +19,7 @@ const smsControllers = require("./controllers/sms");
 app.get("/test", (req, res) => {
   response.status(201).json("Hello World");
 });
-app.use(cors({ origin: "https://ding-dong-1ow6y8860-ninaspray.vercel.app" }));
+app.use(cors({ origin: "https://ding-dong-9t7iryctf-ninaspray.vercel.app" }));
 //Router("*", cors("https://ding-dong-1ow6y8860-ninaspray.vercel.app/"));
 app.use(express.json());
 
