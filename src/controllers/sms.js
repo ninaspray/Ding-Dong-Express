@@ -1,13 +1,19 @@
 const { Tennant } = require("../models");
 
+require("dotenv").config({
+  path: path.join(__dirname, "../.env.prod"),
+});
+
+const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN } = process.env;
+
 exports.create = async (request, response) => {
   const { tennantId } = request.body;
   const tennant = await Tennant.findByPk(tennantId);
 
-  const accountSid = "AC9a038af7321c1ce431aa34fa8f835c5f";
-  const authToken = "a40412d396ba53e38ed211710ab70d08";
+  const accountSid = TWILIO_ACCOUNT_SID;
+  const authToken = TWILIO_AUTH_TOKEN;
   const client = require("twilio")(accountSid, authToken);
-  console.log(tennant.telephone);
+  console.log(tennant.telephone, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
   client.messages
     .create({
       to: "+44" + tennant.telephone,
