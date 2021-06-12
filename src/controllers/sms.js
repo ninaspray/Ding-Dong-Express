@@ -1,9 +1,4 @@
 const { Tennant } = require("../models");
-const path = require("path");
-
-require("dotenv").config({
-  path: path.join(__dirname, "../.env.prod"),
-});
 
 const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN } = process.env;
 
