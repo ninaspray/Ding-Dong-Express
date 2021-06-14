@@ -10,7 +10,7 @@ const smsControllers = require("./controllers/sms");
 app.get("/test", (req, res) => {
   response.status(201).json("Hello World");
 });
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "https://ding-dong-concierge.vercel.app" }));
 app.use(express.json());
 
 //Tennant
