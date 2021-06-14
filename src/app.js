@@ -5,7 +5,6 @@ const cors = require("cors");
 const tennantControllers = require("./controllers/tennant");
 const packageControllers = require("./controllers/package");
 const smsControllers = require("./controllers/sms");
-//const { Router } = require("express");
 
 app.get("/test", (req, res) => {
   response.status(201).json("Hello World");
@@ -13,7 +12,7 @@ app.get("/test", (req, res) => {
 app.use(cors({ origin: "https://ding-dong-concierge.vercel.app" }));
 app.use(express.json());
 
-//Tennant
+//Tenant
 app.post("/tennants", tennantControllers.create);
 app.get("/tennants", tennantControllers.list);
 app.get("/tennants/:id", tennantControllers.getTennantById);
